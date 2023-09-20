@@ -3,7 +3,7 @@ AHP MSK data science accelerator
 
 ## Project Structure
 
-The AHP MSK data science accelerator is organised as below. *While under development, this structure may have to change.*
+The AHP MSK data science accelerator app folder is organised as below. *While under development, this structure may have to change.*
 
 ```
 ├── data*                    // outputs created by the project - * not tracked by Git
