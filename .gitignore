@@ -3,13 +3,8 @@
 .RData
 .Ruserdata
 
-# data folders #
+# 'data' folder #
 data/
-
-# Images
-*.png
-*.jpg
-*.jpeg
 
 # Common text files that may contain data #
 *.[cC][sS][vV]
@@ -20,10 +15,19 @@ data/
 
 # SPSS formats #
 *.[sS][aA][vV]
+*.[zZ][sS][aA][vV]
 
 # R data files #
 *.[rR][dD][aA][tT][aA]
 *.[rR][dD][sS]
+
+# MacOS folder attributes files #
+.DS_Store
+
+# Images
+*.png
+*.jpg
+*.jpeg
 
 # Word documents #
 *.[dD][oO][cC][xX]
@@ -33,3 +37,4 @@ data/
 
 # Allow lookups
 !lookups/
+

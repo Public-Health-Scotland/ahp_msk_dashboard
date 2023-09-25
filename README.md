@@ -1,15 +1,19 @@
-# ahp_dsa
-AHP MSK data science accelerator 
+# AHP MSK Data Science Accelerator
 
-## Project Structure
+PHS shiny app template
 
 The AHP MSK data science accelerator app folder is organised as below. *While under development, this structure may have to change.*
+## Instructions for use 
 
-```
-├── data*                    // outputs created by the project - * not tracked by Git
-├── docs                     // documentation for the project
-├── code                     // code for scripts
-├── functions                // created functions used within the code
-├── app                      // shiny app code
-└── tests                    // code for testing the functions used within the project
-```
+* Run the app by opening app.R and clicking 'Run' in the top right hand corner
+* `setup.R` contains required packages and is where any data should be read in
+* `data` is a folder for storing data to be read in
+* `www` contains the app stylesheet and PHS icon images
+* `pages` should contain an R script for each tab in your app with the content of that tab. This needs to be linked back to the ui in app.R
+* `functions` contains R scripts with functions for the app
+
+## PHS shiny app examples
+
+* [COVID-19 dashboard](https://github.com/Public-Health-Scotland/COVID-19-Publication-Dashboard)
+* [COVID-19 wider impacts dashboard](https://github.com/Public-Health-Scotland/covid-wider-impacts/tree/master/shiny_app)
+* [ScotPHO profiles](https://github.com/Public-Health-Scotland/scotpho-profiles-tool)
