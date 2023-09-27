@@ -5,7 +5,7 @@ PHS shiny app template.
 The AHP MSK data science accelerator app folder is organised as below. *While under development, this structure may have to change.*
 ## Instructions for use 
 
-* Run the app by opening app.R and clicking 'Run' in the top right hand corner
+* Run the app by opening UI.R and clicking 'Run App' in the top right hand corner
 * `setup.R` contains required packages and is where any data should be read in
 * `data` is a folder for storing data to be read in
 * `www` contains the app stylesheet and PHS icon images
