@@ -8,6 +8,7 @@ server <- function(input, output, session) {
   # Get content for individual pages
   source(file.path("pages/intro_page.R"), local = TRUE)$value
   source(file.path("pages/page_1.R"), local = TRUE)$value
+  source(file.path("pages/notes_page.R"), local = TRUE)$value
   
 }
 
