@@ -25,15 +25,71 @@ ui <- fluidPage(
       windowTitle = "ahp_app",# Title for browser tab
       header = tags$head(includeCSS("www/styles.css"),  # CSS stylesheet
                          tags$link(rel = "shortcut icon", href = "favicon_phs.ico") # Icon for browser tab
-      ), ##############################################.
-      # INTRO PAGE ----
+      ), 
       ##############################################.
-      tabPanel(title = "Introduction",
+      # INFORMATION PAGE ----
+      ##############################################.
+      tabPanel(title = "Information",
                icon = icon_no_warning_fn("circle-info"),
                value = "intro",
                
-               h1("Welcome to the dashboard"),
-               uiOutput("intro_page_ui")
+               h1("Allied Health Professional Musculoskeletal (AHP MSK)"),
+               uiOutput("intro_page_ui") # Why has this stopped working?
+               
+      ), # tabpanel
+      ##############################################.
+      # NOTES PAGE ----
+      ##############################################.
+      tabPanel(title = "Notes",
+               icon = icon_no_warning_fn("clipboard"),
+               value = "intro",
+               
+               h1("Data quality and completeness"),
+               
+               
+      ), # tabpanel
+      ##############################################.
+      # NHS BOARD PAGE ----
+      ##############################################.
+      tabPanel(title = "NHS Board",
+               icon = icon_no_warning_fn("hospital"),
+               value = "intro",
+               
+               h1("View data by NHS Board"),
+               
+               
+      ), # tabpanel
+      ##############################################.
+      # SPECIALTY PAGE ----
+      ##############################################.
+      tabPanel(title = "Specialty",
+               icon = icon_no_warning_fn("user-doctor"),
+               value = "intro",
+               
+               h1("View data by Specialty"),
+               
+               
+      ), # tabpanel
+      ##############################################.
+      # MAP PAGE ----
+      ##############################################.
+      tabPanel(title = "Map",
+               icon = icon_no_warning_fn("location-dot"),
+               value = "intro",
+               
+               h1("View data by Health and Social Care Partnership"),
+               
+               
+      ), # tabpanel
+      ##############################################.
+      # DATA PAGE ----
+      ##############################################.
+      tabPanel(title = "Data",
+               icon = icon_no_warning_fn("table"),
+               value = "intro",
+               
+               h1("Download the data"),
+               
                
       ), # tabpanel
       ##############################################.
