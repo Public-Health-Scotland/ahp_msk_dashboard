@@ -13,16 +13,7 @@ output$intro_page_ui <-  renderUI({
              p("The Scottish Government set a target that, from 1 April 2016, at least 90% of patients will receive a first outpatient appointment with an Allied Health Professional (AHP) for Musculoskeletal (MSK) conditions within 4 weeks of referral. The target refers to 90% rather than 100% in recognition that for some patients it may not be clinically appropriate for treatment to begin within the target's time. This appointment may be by telephone, video or face-to-face. The inclusion criterion for the target is adults (age 16 and over) where MSK is the primary reason for referral. The target should be met no matter which profession is leading the patient's treatment and the professions included are Physiotherapy, Chiropody/Podiatry, Occupational Therapy and Orthotics."),
              p("The waiting time used for this target is an adjusted waiting time, which adjusts for patient unavailability or non-attendance, based on the NHSScotland Waiting Times Guidance. In line with this guidance, adjustments/clock resets for patient unavailability/non-attendance are only made up to first 4 weeks of the patient's wait.")
             
-            
-            
-            
-            
-            
-            
-            #The Scottish Government set a target that, from 1 April 2016, at least 90% of patients will receive a first outpatient appointment with an Allied Health Professional (AHP) for Musculoskeletal (MSK) conditions within 4 weeks of referral. The target refers to 90% rather than 100% in recognition that for some patients it may not be clinically appropriate for treatment to begin within the target's time. This appointment may be by telephone, video or face-to-face. The inclusion criterion for the target is adults. (age 16 and over) where MSK is the primary reason for referral. The target should be met no matter which profession is leading the patient's treatment and the professions included are Physiotherapy, Chiropody/Podiatry, Occupational Therapy and Orthotics.
-            
-            #The waiting time used for this target is an adjusted waiting time, which adjusts for patient unavailability or non-attendance, based on the NHSScotland Waiting Times Guidance. In line with this guidance, adjustments/clock resets for patient unavailability/non-attendance are only made up to first 4 weeks of the patient's wait
-            
+           
 	      ) #fluidrow
    ) # div
 }) # renderUI

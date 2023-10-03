@@ -34,7 +34,7 @@ ui <- fluidPage(
                value = "intro",
                
                h1("Allied Health Professional Musculoskeletal (AHP MSK)"),
-               uiOutput("intro_page_ui") # Why has this stopped working?
+               uiOutput("intro_page_ui") 
                
       ), # tabpanel
       ##############################################.
@@ -45,7 +45,7 @@ ui <- fluidPage(
                value = "intro",
                
                h1("Data quality and completeness"),
-               
+               uiOutput("notes_page_ui") 
                
       ), # tabpanel
       ##############################################.
