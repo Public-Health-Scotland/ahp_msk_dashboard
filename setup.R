@@ -7,9 +7,13 @@ library(shinycssloaders)
 # Data wrangling packages ----
 library(dplyr)
 library(magrittr)
+library(readr)
+library(shinyWidgets)
+library(tidyr)
 
 # Plotting packages ----
 library(plotly)
+library(ggplot2)
 
 # PHS styling packages ----
 library(phsstyles)
@@ -32,4 +36,5 @@ bttn_remove <-  list('select2d', 'lasso2d', 'zoomIn2d', 'zoomOut2d',
 
 # LOAD IN DATA HERE ----
 
-
+# Read in data for waiting_list_chart
+Join_all_long <- read_csv("data/Join_all_long.csv",show_col_types = FALSE)
