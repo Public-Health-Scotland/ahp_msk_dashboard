@@ -56,7 +56,7 @@ ui <- fluidPage(
                value = "intro",
                
                h1("View data by NHS Board"),
-               
+               uiOutput("board_page_ui") 
                
       ), # tabpanel
       ##############################################.
