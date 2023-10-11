@@ -55,8 +55,8 @@ ui <- fluidPage(
                icon = icon_no_warning_fn("hospital"),
                value = "intro",
                
-               h1("View data by NHS Board"),
-               uiOutput("board_page_ui") 
+              
+      source(file.path("pages/board_page_ui.R"), local = TRUE)$value
                
       ), # tabpanel
       ##############################################.
