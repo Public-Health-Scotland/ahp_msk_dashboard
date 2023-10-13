@@ -38,3 +38,5 @@ bttn_remove <-  list('select2d', 'lasso2d', 'zoomIn2d', 'zoomOut2d',
 
 # Read in data for waiting_list_chart
 Join_all_long <- read_csv("data/Join_all_long.csv",show_col_types = FALSE)
+# Read in data for waiting_list_chart
+Join_all_long2 <- read_csv("data/Join_all_long2.csv",show_col_types = FALSE)
