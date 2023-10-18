@@ -40,7 +40,7 @@
      	       ),
      	     
      	       
-             plotOutput("waiting_list_chart") 
+             plotlyOutput("waiting_list_chart") 
            
 	      ) #fluidrow
 
