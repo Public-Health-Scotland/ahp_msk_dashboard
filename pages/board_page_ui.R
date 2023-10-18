@@ -39,7 +39,7 @@
      	                          choices = unique(Join_all_long2$Specialty))
      	       ),
      	     
-     	       
+     	       linebreaks(3),
              plotlyOutput("waiting_list_chart") 
            
 	      ) #fluidrow

@@ -38,7 +38,8 @@ output$waiting_list_chart <- renderPlotly({
     xlab(NULL) +
     theme(plot.title.position = "panel") +
     scale_y_continuous (labels=function(x) format(x, big.mark = ",", scientific = FALSE))
-    )
+    ) %>% 
+    layout(legend = list(orientation = 'h', x = 0.1, y = -0.2))
 })
 
 
