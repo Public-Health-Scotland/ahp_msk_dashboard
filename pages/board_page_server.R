@@ -36,8 +36,7 @@ output$waiting_list_chart <- renderPlot({
     ylab(NULL) +
     xlab(NULL) +
     theme(plot.title.position = "panel") +
-    scale_y_continuous (breaks=seq (0,80000,by=1000),
-                        labels=function(x) format(x, big.mark = ",", scientific = FALSE))
+    scale_y_continuous (labels=function(x) format(x, big.mark = ",", scientific = FALSE))
 })
 
 
