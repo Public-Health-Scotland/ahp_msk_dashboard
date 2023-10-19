@@ -14,17 +14,33 @@
      	       column(6,
      	              selectInput("board",
      	                          "Select a Board",
-     	                          choices = unique(Join_all_long2$`NHS Board`))
-     	       )
-     	       ,
+     	                          #choices = unique(Join_all_long2$`NHS Board`)
+     	                          choices = c("Scotland",
+     	                                      "Ayrshire & Arran",
+     	                                      "Borders",
+     	                                      "Dumfries & Galloway",
+     	                                      "Fife",
+     	                                      "Forth Valley",
+     	                                      "Grampian",
+     	                                      "Greater Glasgow & Clyde",
+     	                                      "Highland",
+     	                                      "Lanarkshire",
+     	                                      "Lothian",
+     	                                      "Orkney",
+     	                                      "Shetland",
+     	                                      "Tayside",
+     	                                      "Western Isles"
+     	                                      )
+     	                          )
+     	       ),
      	       column(6,
      	              selectInput("specialty",
      	                          "Select a Specialty",
      	                          choices = unique(Join_all_long2$Specialty))
      	       ),
      	     
-     	       
-             plotOutput("waiting_list_chart") 
+     	       linebreaks(3),
+             plotlyOutput("waiting_list_chart") 
            
 	      ) #fluidrow
 

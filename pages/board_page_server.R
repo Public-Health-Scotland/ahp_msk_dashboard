@@ -14,7 +14,8 @@ filtered_data <- reactive({
 #waiting-list_chart
 
 
-output$waiting_list_chart <- renderPlot({
+output$waiting_list_chart <- renderPlotly({
+  ggplotly(
     ggplot(data = filtered_data(),
          aes(x = `Month/Year`, y = Value, group = Indicator)) +
     geom_line(aes(colour= Indicator), size=1.2) +
@@ -36,8 +37,9 @@ output$waiting_list_chart <- renderPlot({
     ylab(NULL) +
     xlab(NULL) +
     theme(plot.title.position = "panel") +
-    scale_y_continuous (breaks=seq (0,80000,by=1000),
-                        labels=function(x) format(x, big.mark = ",", scientific = FALSE))
+    scale_y_continuous (labels=function(x) format(x, big.mark = ",", scientific = FALSE))
+    ) %>% 
+    layout(legend = list(orientation = 'h', x = 0.1, y = -0.2))
 })
 
 
