@@ -14,7 +14,7 @@ output$seenBox <- renderValueBox({
   valueBox(value = p(paste0(25, "%")), 
   subtitle = h3("Patients Seen"), 
   icon = icon("list"),      
-  color = "purple")  
+  color = "blue")  
   })
 
 
