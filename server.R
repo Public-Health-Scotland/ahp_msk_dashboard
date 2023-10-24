@@ -13,6 +13,7 @@ server <- function(input, output, session) {
   # Get SERVER code for the individual pages
   
   source(file.path("pages/board_page_server.R"), local = TRUE)$value
+  source(file.path("pages/download_page_server.R"), local = TRUE)$value
   
 }
 
