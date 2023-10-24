@@ -88,7 +88,9 @@ ui <- fluidPage(
                icon = icon_no_warning_fn("table"),
                value = "intro",
                
-               h1("Download the data"),
+               #h1("Download the data"),
+               
+      source(file.path("pages/download_page_ui.R"), local = TRUE)$value         
                
                
       ), # tabpanel
