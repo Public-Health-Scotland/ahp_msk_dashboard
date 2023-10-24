@@ -15,17 +15,19 @@ filtered_data <- reactive({
 
 
 output$waiting_list_chart <- renderPlotly({
-  ggplotly(
+  board_plot <-
     ggplot(data = filtered_data(),
-         aes(x = `Month/Year`, y = Value, group = Indicator)) +
+         aes(x = `Month/Year`, y = Value, group = Indicator,
+             text = paste0("Date: ", format(`Month/Year`, "%B %Y"), "<br>",
+                           Indicator, ": ", format(Value, big.mark = ",", scientific = FALSE))
+             )
+           ) +
     geom_line(aes(colour= Indicator), size=1.2) +
     theme_bw() +
     theme(legend.text = element_text(size = 12)) +
     theme(legend.position="bottom") +
     theme(legend.title=element_blank()) +
     theme(axis.text=element_text(size=12),axis.title=element_text(size=12)) +
-    # scale_x_date(date_labels = "%b %y", breaks = as.Date(c("2019-01-01", "2019-04-01",
-    #                                                        "2019-07-01", "2019-10-01",
     scale_x_date(date_labels = "%b %y", breaks = as.Date(c("2020-01-01", "2020-04-01",
                                                            "2020-07-01", "2020-10-01",
                                                            "2021-01-01", "2021-04-01",
@@ -38,7 +40,9 @@ output$waiting_list_chart <- renderPlotly({
     xlab(NULL) +
     theme(plot.title.position = "panel") +
     scale_y_continuous (labels=function(x) format(x, big.mark = ",", scientific = FALSE))
-    ) %>% 
+    
+    ggplotly(board_plot, 
+             tooltip = "text") %>%
     layout(legend = list(orientation = 'h', x = 0.1, y = -0.2)) %>%
     config(displaylogo = F, displayModeBar = TRUE, modeBarButtonsToRemove = bttn_remove )
 })
