@@ -3,6 +3,21 @@
 
 
 
+# output$attendance <- renderValueBox({
+#   valueBox(value = p("Attendance", style = "font-size: 75%;"),
+#            subtitle = h3(data()$attendance),
+#            icon = icon("line-chart"), 
+#            color = "teal")
+# })
+
+output$seenBox <- renderValueBox({
+  valueBox(value = p(paste0(25, "%")), 
+  subtitle = h3("Patients Seen"), 
+  icon = icon("list"),      
+  color = "purple")  
+  })
+
+
 filtered_data <- reactive({
   Join_all_long2 %>%
     filter(`NHS Board` == input$board) %>%
