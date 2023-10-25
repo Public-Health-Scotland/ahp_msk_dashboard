@@ -13,26 +13,22 @@ tagList(
 
 ), #fluidrow
 
-  fluidRow(
+  
+#  ),
+#),
+
+  
+  
+fluidRow(
   column(6,
          selectInput("dataset",
                      "Select a dataset",
-                      choices = data_list_data_tab
-         )
-  ),
+                     choices = data_list_data_tab),
+  column(6, downloadButton(outputId = 'download_table_csv', 
+                           label = 'Download data')),
   
+  DT::dataTableOutput("download_table")
 )
-  
-  
 
-#  DT::dataTableOutput(“table_output”)
-  
-# ui <- fluidPage(
-#   
-#   radioButtons(“gender”,
-#                 “Male or Female Dogs?”,
-#                 choices = c(“Male”, “Female”)),
-#   
-#   DT::dataTableOutput(“table_output”)
-# )
+
 )
