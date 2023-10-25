@@ -5,7 +5,12 @@
 data_table <- reactive({
   # Change dataset depending on what user selected
   table_data <- switch(input$dataset,
-                       data_list_data_tab)
+                        "Referrals" = Referrals,
+                        "Patients Seen" = Seen,
+                        "Patients Waiting" = Waiting,
+                        "Removals" = Removals, 
+                        "Join_all_long2" = Join_all_long2)
+                       
                    #    "data_allergy" = data_allergy, 
                   #     "data_asthma" = data_asthma)
   
