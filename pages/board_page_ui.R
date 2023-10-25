@@ -1,13 +1,16 @@
 ####################### Boards Page #######################
 
       
-
+    tagList(
+      
+      
+           fluidRow(
+             h1("View data by NHS Board")#,
+          #   valueBoxOutput("seenBox", width = 4)
+             ),      
+             
+      
      	     fluidRow(
-     	       h1("View data by NHS Board"),
-     	       
-     	       # Dynamic valueBoxes
-     	       valueBoxOutput("seenBox", width = 4),      
-     	       #valueBoxOutput("waitingBox"),
      	       
      	       p("The chart below shows a trend for the number of patients waiting at the end of each 
                 month , as well as the number of patients that were referred (added to the waiting list) and removed from waiting lists during 
@@ -47,4 +50,5 @@
              plotlyOutput("waiting_list_chart") 
            
 	      ) #fluidrow
+    )
 
