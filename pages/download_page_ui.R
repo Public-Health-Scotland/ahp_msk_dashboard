@@ -15,25 +15,9 @@ tagList(
 
   fluidRow(
   column(6,
-         selectInput("board",
-                     "Select a Board",
-                     #choices = unique(Join_all_long2$`NHS Board`)
-                     choices = c("Scotland",
-                                 "Ayrshire & Arran",
-                                 "Borders",
-                                 "Dumfries & Galloway",
-                                 "Fife",
-                                 "Forth Valley",
-                                 "Grampian",
-                                 "Greater Glasgow & Clyde",
-                                 "Highland",
-                                 "Lanarkshire",
-                                 "Lothian",
-                                 "Orkney",
-                                 "Shetland",
-                                 "Tayside",
-                                 "Western Isles"
-                     )
+         selectInput("dataset",
+                     "Select a dataset",
+                      choices = data_list_data_tab
          )
   ),
   
