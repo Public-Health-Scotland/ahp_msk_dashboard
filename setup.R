@@ -42,5 +42,20 @@ bttn_remove <-  list('select2d',
 
 # LOAD IN DATA HERE ----
 
-# Read in data for waiting_list_chart
+# Read in data 
 Join_all_long2 <- read_csv("data/Join_all_long2.csv",show_col_types = FALSE)
+Referrals <- read_csv("data/Refs_data.csv",show_col_types = FALSE)
+Seen <- read_csv("data/Seen_data.csv",show_col_types = FALSE)
+Waiting <- read_csv("data/Wait_data.csv",show_col_types = FALSE) 
+Removals <- read_csv("data/Removals_data.csv",show_col_types = FALSE)
+
+
+# Setting up vector for data download page
+data_list_data_tab <- c("Referrals" = "Referrals",
+                        "Patients Seen" = "Seen",
+                        "Patients Waiting" = "Waiting",
+                        "Removals" = "Removals", 
+                        "Waiting List" = "Join_all_long2")
+
+
+
