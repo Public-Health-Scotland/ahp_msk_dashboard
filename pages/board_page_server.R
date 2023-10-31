@@ -7,8 +7,7 @@ seen_box <- reactive({
     filter(`NHS Board` == input$board) %>%
     filter(Specialty == input$specialty) %>%
     filter(`Month/Year` == input$month) %>%
-    filter(Indicator == "0 - 4 weeks (%)") %>%
-    select(Value, -Qualifier)
+    filter(Indicator == "0 - 4 weeks (%)") 
 })
 
 # Passing data to seen valueBox
