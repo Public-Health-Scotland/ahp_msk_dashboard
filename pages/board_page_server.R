@@ -1,28 +1,44 @@
 
 ####################### Boards Page - SERVER #######################
 
+# Filtering data for seen_box
+seen_box <- reactive({
+  Seen %>%
+    filter(`NHS Board` == input$board) %>%
+    filter(Specialty == input$specialty) %>%
+    filter(`Month/Year` == input$month) %>%
+    filter(Indicator == "0 - 4 weeks (%)") %>%
+    select(Value, -Qualifier)
+})
 
+# Passing data to seen valueBox
+output$seen_performance <- renderText({
+  prettyNum(input$seen_box, big.mark=",")
+})
 
+# Filtering data for waiting_box
+waiting_box <- reactive({
+  Waiting %>%
+    filter(`NHS Board` == input$board) %>%
+    filter(Specialty == input$specialty) %>%
+    filter(`Month/Year` == input$month) %>%
+    filter(Indicator == "0 - 4 weeks (%)") %>%
+    select(Value, -Qualifier)
+})
 
-# output$seenBox <- renderValueBox({
-#   valueBox(value = p(paste0(25, "%")), 
-#   subtitle = h3("Patients Seen"), 
-#   icon = icon("list"),      
-#   color = "blue")  
-#   })
+# Passing data to waiting ValueBox
+output$waiting_performance <- renderText({
+  prettyNum(input$waiting_box, big.mark=",")
+})
 
-
+# Create filtered_data to use in chart
 filtered_data <- reactive({
   Join_all_long2 %>%
     filter(`NHS Board` == input$board) %>%
     filter(Specialty == input$specialty)
 })
 
-
-
-#waiting-list_chart
-
-
+# waiting-list_chart
 output$waiting_list_chart <- renderPlotly({
   board_plot <-
     ggplot(data = filtered_data(),

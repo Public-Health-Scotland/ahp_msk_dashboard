@@ -5,10 +5,68 @@
       
       
            fluidRow(
-             h1("View data by NHS Board")#,
-          #   valueBoxOutput("seenBox", width = 4)
-             ),      
+             h1("View data by NHS Board")
+          
+             ), 
+           
+           fluidRow(
+             column(4,
+                    selectInput("board",
+                                "Select a Board",
+                                choices = c("Scotland",
+                                            "Ayrshire & Arran",
+                                            "Borders",
+                                            "Dumfries & Galloway",
+                                            "Fife",
+                                            "Forth Valley",
+                                            "Grampian",
+                                            "Greater Glasgow & Clyde",
+                                            "Highland",
+                                            "Lanarkshire",
+                                            "Lothian",
+                                            "Orkney",
+                                            "Shetland",
+                                            "Tayside",
+                                            "Western Isles"
+                                )
+                    )
+             ),
+             column(4,
+                    selectInput("specialty",
+                                "Select a Specialty",
+                                choices = unique(Join_all_long2$Specialty)
+                                )
+             ),
+             column(4, 
+                    selectInput("month",
+                                "Select a month and year",
+                                choices = unique(Seen$`Month/Year`)
+                      
+                    )
+               
+             )
              
+           ),
+           
+           fluidRow(
+             infoBox(
+               "Target", "90% of patients seen within 4 weeks of referral", 
+               icon = icon("bullseye"), 
+               color = "fuchsia",
+               fill = TRUE
+             ),
+             valueBox(
+               uiOutput("seen_performance"), "Patients seen within 4 weeks", 
+               icon = icon("hospital-user"),
+               color = "purple",
+             ), 
+             valueBox(
+               uiOutput("waiting_performance"), "Patients waiting within 4 weeks", 
+               icon = icon("users"),
+               color = "purple"
+             )
+             
+           ),
       
      	     fluidRow(
      	       
@@ -18,33 +76,7 @@
                 for other reasons, for example because treatment was no longer required or because 
                 the referral was inappropriate.  "),
      	       
-     	       column(6,
-     	              selectInput("board",
-     	                          "Select a Board",
-     	                          #choices = unique(Join_all_long2$`NHS Board`)
-     	                          choices = c("Scotland",
-     	                                      "Ayrshire & Arran",
-     	                                      "Borders",
-     	                                      "Dumfries & Galloway",
-     	                                      "Fife",
-     	                                      "Forth Valley",
-     	                                      "Grampian",
-     	                                      "Greater Glasgow & Clyde",
-     	                                      "Highland",
-     	                                      "Lanarkshire",
-     	                                      "Lothian",
-     	                                      "Orkney",
-     	                                      "Shetland",
-     	                                      "Tayside",
-     	                                      "Western Isles"
-     	                                      )
-     	                          )
-     	       ),
-     	       column(6,
-     	              selectInput("specialty",
-     	                          "Select a Specialty",
-     	                          choices = unique(Join_all_long2$Specialty))
-     	       ),
+     	       
      	     
      	       linebreaks(3),
              plotlyOutput("waiting_list_chart") 
