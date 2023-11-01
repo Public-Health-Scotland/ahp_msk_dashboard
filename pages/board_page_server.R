@@ -1,34 +1,36 @@
 
 ####################### Boards Page - SERVER #######################
 
-# Filtering data for seen_box
+# Filtering data for seen_box - need the pull to pick up the instance of Value
 seen_box <- reactive({
   Seen %>%
     filter(`NHS Board` == input$board) %>%
     filter(Specialty == input$specialty) %>%
     filter(`Month/Year` == input$month) %>%
-    filter(Indicator == "0 - 4 weeks (%)") 
-})
-
-# Passing data to seen valueBox
-output$seen_performance <- renderText({
-  prettyNum(input$seen_box, big.mark=",")
-})
-
-# Filtering data for waiting_box
-waiting_box <- reactive({
-  Waiting %>%
-    filter(`NHS Board` == input$board) %>%
-    filter(Specialty == input$specialty) %>%
-    filter(`Month/Year` == input$month) %>%
     filter(Indicator == "0 - 4 weeks (%)") %>%
-    select(Value, -Qualifier)
+    pull(Value)
 })
 
-# Passing data to waiting ValueBox
-output$waiting_performance <- renderText({
-  prettyNum(input$waiting_box, big.mark=",")
+# Passing data to seen valueBox. Need seen_box() instead of input$seen_box 
+output$seen_performance <- renderText({
+#  prettyNum(seen_box(), big.mark=",")
+   paste0(prettyNum(seen_box(), big.mark=","), "%")
 })
+
+# # Filtering data for waiting_box
+# waiting_box <- reactive({
+#   Waiting %>%
+#     filter(`NHS Board` == input$board) %>%
+#     filter(Specialty == input$specialty) %>%
+#     filter(`Month end` == input$month) %>%
+#     filter(Indicator == "0 - 4 weeks (%)") %>%
+#     pull(Value)
+# })
+# 
+# # Passing data to waiting ValueBox
+# output$waiting_performance <- renderText({
+#   prettyNum(waiting_box(), big.mark=",")
+# })
 
 # Create filtered_data to use in chart
 filtered_data <- reactive({
@@ -36,6 +38,38 @@ filtered_data <- reactive({
     filter(`NHS Board` == input$board) %>%
     filter(Specialty == input$specialty)
 })
+
+output$valuebox_text <- renderUI({
+  
+  list(
+    
+    h3("Performance against the target for ",input$board, "for", input$specialty, "during", input$month)
+    
+  )
+})
+
+
+dq_filtered <- reactive({
+  dq %>% dplyr::filter(board == input$board)
+})
+
+output$dq_text <- renderUI({
+  
+  list(
+    
+    h3("Trend chart for ",input$board),    
+    
+    if(input$board == "Scotland") {
+      p("View data quality notes for each board on the Notes tab.")
+    } else {
+      purrr::map(dq_filtered()$text, p)
+    }
+    
+  )
+  
+})
+
+
 
 # waiting-list_chart
 output$waiting_list_chart <- renderPlotly({
