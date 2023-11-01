@@ -1,4 +1,11 @@
 server <- function(input, output, session) {
+ 
+  # This chunk stops the app from timing out 
+  auto_invalidate <- reactiveTimer(10000)
+  observe({
+    auto_invalidate()
+    cat(".")
+  })
   
   # Get functions
   source(file.path("functions/core_functions.R"), local = TRUE)$value
