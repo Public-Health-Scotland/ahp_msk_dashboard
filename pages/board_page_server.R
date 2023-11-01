@@ -1,34 +1,35 @@
 
 ####################### Boards Page - SERVER #######################
 
-# Filtering data for seen_box
+# Filtering data for seen_box - need the pull to pick up the instance of Value
 seen_box <- reactive({
   Seen %>%
     filter(`NHS Board` == input$board) %>%
     filter(Specialty == input$specialty) %>%
     filter(`Month/Year` == input$month) %>%
-    filter(Indicator == "0 - 4 weeks (%)") 
-})
-
-# Passing data to seen valueBox
-output$seen_performance <- renderText({
-  prettyNum(input$seen_box, big.mark=",")
-})
-
-# Filtering data for waiting_box
-waiting_box <- reactive({
-  Waiting %>%
-    filter(`NHS Board` == input$board) %>%
-    filter(Specialty == input$specialty) %>%
-    filter(`Month/Year` == input$month) %>%
     filter(Indicator == "0 - 4 weeks (%)") %>%
-    select(Value, -Qualifier)
+    pull(Value)
 })
 
-# Passing data to waiting ValueBox
-output$waiting_performance <- renderText({
-  prettyNum(input$waiting_box, big.mark=",")
+# Passing data to seen valueBox. Need seen_box() instead of input$seen_box 
+output$seen_performance <- renderText({
+  prettyNum(seen_box(), big.mark=",")
 })
+
+# # Filtering data for waiting_box
+# waiting_box <- reactive({
+#   Waiting %>%
+#     filter(`NHS Board` == input$board) %>%
+#     filter(Specialty == input$specialty) %>%
+#     filter(`Month end` == input$month) %>%
+#     filter(Indicator == "0 - 4 weeks (%)") %>%
+#     pull(Value)
+# })
+# 
+# # Passing data to waiting ValueBox
+# output$waiting_performance <- renderText({
+#   prettyNum(waiting_box(), big.mark=",")
+# })
 
 # Create filtered_data to use in chart
 filtered_data <- reactive({

@@ -59,12 +59,12 @@
                uiOutput("seen_performance"), "Patients seen within 4 weeks of referral", 
                icon = icon("hospital-user"),
                color = "purple",
-             ), 
-             valueBox(
-               uiOutput("waiting_performance"), "Patients waiting within 4 weeks of referral", 
-               icon = icon("users"),
-               color = "purple"
-             )
+              )#, 
+             # valueBox(
+             #   uiOutput("waiting_performance"), "Patients waiting within 4 weeks of referral", 
+             #   icon = icon("users"),
+             #   color = "purple"
+             # )
              
            ),
       
