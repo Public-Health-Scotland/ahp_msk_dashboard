@@ -13,7 +13,8 @@ seen_box <- reactive({
 
 # Passing data to seen valueBox. Need seen_box() instead of input$seen_box 
 output$seen_performance <- renderText({
-  prettyNum(seen_box(), big.mark=",")
+#  prettyNum(seen_box(), big.mark=",")
+   paste0(prettyNum(seen_box(), big.mark=","), "%")
 })
 
 # # Filtering data for waiting_box
@@ -37,6 +38,38 @@ filtered_data <- reactive({
     filter(`NHS Board` == input$board) %>%
     filter(Specialty == input$specialty)
 })
+
+output$valuebox_text <- renderUI({
+  
+  list(
+    
+    h3("Performance against the target for ",input$board, "for", input$specialty, "during", input$month)
+    
+  )
+})
+
+
+dq_filtered <- reactive({
+  dq %>% dplyr::filter(board == input$board)
+})
+
+output$dq_text <- renderUI({
+  
+  list(
+    
+    h3("Trend chart for ",input$board),    
+    
+    if(input$board == "Scotland") {
+      p("View data quality notes for each board on the Notes tab.")
+    } else {
+      purrr::map(dq_filtered()$text, p)
+    }
+    
+  )
+  
+})
+
+
 
 # waiting-list_chart
 output$waiting_list_chart <- renderPlotly({

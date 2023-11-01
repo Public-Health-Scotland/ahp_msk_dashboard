@@ -49,12 +49,21 @@
            ),
            
            fluidRow(
-             infoBox(
-               "Target", "90% of patients seen within 4 weeks of referral", 
-               icon = icon("bullseye"), 
-               color = "fuchsia",
-               fill = TRUE
+             # infoBox(
+             #   "Target", "90% of patients seen within 4 weeks of referral", 
+             #   icon = icon("bullseye"), 
+             #   color = "fuchsia",
+             #   fill = TRUE
+             # ),
+             
+             uiOutput("valuebox_text"),
+             
+             valueBox(
+               tagList("90%"),
+               "TARGET: patients seen within 4 weeks of referral", icon = icon("bullseye"), color = "fuchsia"
              ),
+             
+             
              valueBox(
                uiOutput("seen_performance"), "Patients seen within 4 weeks of referral", 
                icon = icon("hospital-user"),
@@ -67,8 +76,13 @@
              # )
              
            ),
+           
+           
       
      	     fluidRow(
+     	       
+     	       # Create the DQ automated text
+     	       uiOutput("dq_text"),
      	       
      	       p("The chart below shows a trend for the number of patients waiting at the end of each 
                 month , as well as the number of patients that were referred (added to the waiting list) and removed from waiting lists during 
@@ -76,9 +90,6 @@
                 for other reasons, for example because treatment was no longer required or because 
                 the referral was inappropriate.  "),
      	       
-     	       
-     	     
-     	       linebreaks(3),
              plotlyOutput("waiting_list_chart") 
            
 	      ) #fluidrow
