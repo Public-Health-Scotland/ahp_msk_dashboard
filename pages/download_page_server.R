@@ -2,25 +2,18 @@
 
 # CREATE THE DATA TABLE ----
 
+# Names in the switch function need to match the names in the setup file when 
+# the data is read in
 data_table <- reactive({
   # Change dataset depending on what user selected
   table_data <- switch(input$dataset,
                         "Referrals" = Referrals,
-                        "Patients Seen" = Seen,
-                        "Patients Waiting" = Waiting,
+                        "Seen" = Seen,
+                        "Waiting" = Waiting,
                         "Removals" = Removals, 
                         "Join_all_long2" = Join_all_long2)
                        
-                   #    "data_allergy" = data_allergy, 
-                  #     "data_asthma" = data_asthma)
-  
-  # if (input$data_select == "data_allergy") { 
-  #   table_data %<>%
-  #     select(year, type, measure, value)
-  # } else if (input$data_select == "data_asthma") { 
-  #   table_data %<>%
-  #     select(diagnosis, year, sex, age_grp, numerator, rate)
-  # }
+
 })
 
 # RENDER THE DATA TABLE ----
