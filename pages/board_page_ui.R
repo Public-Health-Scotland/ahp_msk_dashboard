@@ -89,6 +89,7 @@
                 each month. The number removed includes those that were seen and those removed 
                 for other reasons, for example because treatment was no longer required or because 
                 the referral was inappropriate.  "),
+     	       p(em("A single click on the legend line will remove it from the plot while a double click on the legend line will show just that line.")),
      	       
              plotlyOutput("waiting_list_chart") 
            

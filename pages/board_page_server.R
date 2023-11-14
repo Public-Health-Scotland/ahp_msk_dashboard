@@ -101,7 +101,8 @@ output$waiting_list_chart <- renderPlotly({
     
     ggplotly(board_plot, 
              tooltip = "text") %>%
-    layout(legend = list(orientation = 'h', x = 0.1, y = -0.2)) %>%
+      layout(legend = list(orientation = 'h', x = 0.1, y = 1.2)) %>%
+      #    layout(legend = list(orientation = 'h', x = 0.1, y = -0.2)) %>%
     config(displaylogo = F, displayModeBar = TRUE, modeBarButtonsToRemove = bttn_remove )
 })
 
