@@ -13,8 +13,7 @@ seen_box <- reactive({
 
 # Passing data to seen valueBox. Need seen_box() instead of input$seen_box 
 output$seen_performance <- renderText({
-#  prettyNum(seen_box(), big.mark=",")
-   paste0(prettyNum(seen_box(), big.mark=","), "%")
+  as.character(div(style = "font-size: 125%;",paste0(seen_box(),"%"))) 
 })
 
 # # Filtering data for waiting_box
