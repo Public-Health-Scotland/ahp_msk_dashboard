@@ -56,7 +56,7 @@ data_list_data_tab <- c("Referrals" = "Referrals",
                         "Patients Seen" = "Seen",
                         "Patients Waiting" = "Waiting",
                         "Removals" = "Removals", 
-                        "Waiting List" = "Join_all_long2")
+                        "NHS Board chart data" = "Join_all_long2")
 
 
 

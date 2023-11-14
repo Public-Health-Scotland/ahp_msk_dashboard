@@ -13,8 +13,7 @@ seen_box <- reactive({
 
 # Passing data to seen valueBox. Need seen_box() instead of input$seen_box 
 output$seen_performance <- renderText({
-#  prettyNum(seen_box(), big.mark=",")
-   paste0(prettyNum(seen_box(), big.mark=","), "%")
+  as.character(div(style = "font-size: 125%;",paste0(seen_box(),"%"))) 
 })
 
 # # Filtering data for waiting_box
@@ -101,7 +100,8 @@ output$waiting_list_chart <- renderPlotly({
     
     ggplotly(board_plot, 
              tooltip = "text") %>%
-    layout(legend = list(orientation = 'h', x = 0.1, y = -0.2)) %>%
+      layout(legend = list(orientation = 'h', x = 0.1, y = 1.2)) %>%
+      #    layout(legend = list(orientation = 'h', x = 0.1, y = -0.2)) %>%
     config(displaylogo = F, displayModeBar = TRUE, modeBarButtonsToRemove = bttn_remove )
 })
 
