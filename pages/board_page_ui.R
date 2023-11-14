@@ -55,21 +55,36 @@ tagList(
   ),
   
   fluidRow(
-    column(6,
-           valueBox(
-             value = tags$p("90%", style = "font-size: 125%;"),
-             subtitle = tags$p("TARGET: patients seen within 4 weeks of referral",style = "font-size: 125%;"),
-             icon = icon("bullseye"), color = "fuchsia"
-           )
+    valueBox(
+      value = tags$p("90%", style = "font-size: 125%;"),
+      subtitle = tags$p("TARGET: patients seen within 4 weeks of referral",style = "font-size: 125%;"),
+      icon = icon("bullseye"), color = "fuchsia",
+      width = 6
+      ),
+    valueBox(
+      value = uiOutput("seen_performance"),
+      subtitle = tags$p("Patients seen within 4 weeks of referral",style = "font-size: 125%;"),
+      icon = icon("hospital-user"), color = "purple",
+      width = 6
+      )
     ),
-    column(6,
-           valueBox(
-             value = uiOutput("seen_performance"),
-             subtitle = tags$p("Patients seen within 4 weeks of referral",style = "font-size: 125%;"),
-             icon = icon("hospital-user"), color = "purple"
-           )
-    )
-  ),
+  
+  # fluidRow(
+  #   column(6,
+  #          valueBox(
+  #            value = tags$p("90%", style = "font-size: 125%;"),
+  #            subtitle = tags$p("TARGET: patients seen within 4 weeks of referral",style = "font-size: 125%;"),
+  #            icon = icon("bullseye"), color = "fuchsia"
+  #          )
+  #   ),
+  #   column(6,
+  #          valueBox(
+  #            value = uiOutput("seen_performance"),
+  #            subtitle = tags$p("Patients seen within 4 weeks of referral",style = "font-size: 125%;"),
+  #            icon = icon("hospital-user"), color = "purple"
+  #          )
+  #   )
+  # ),
   
   
   
