@@ -92,7 +92,9 @@ output$waiting_list_chart <- renderPlotly({
                                                            "2022-01-01", "2022-04-01",
                                                            "2022-07-01", "2022-10-01",
                                                            "2023-01-01", "2023-04-01")))+
-    scale_color_manual(values=c('#2F5597','#5B9BD5','#00B0F0','#1F4E79')) +
+#    scale_color_manual(values=c('#2F5597','#5B9BD5','#00B0F0','#1F4E79')) +
+    scale_color_manual(values=rev(as.character(phsstyles::phs_palettes$`main`))) +
+#    scale_fill_manual(values=rev(as.character(phsstyles::phs_palettes$`main-blues`))) +
     ylab(NULL) +
     xlab(NULL) +
     theme(plot.title.position = "panel") +
