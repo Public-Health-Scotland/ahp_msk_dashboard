@@ -85,13 +85,13 @@ output$waiting_list_chart <- renderPlotly({
     theme(legend.position="bottom") +
     theme(legend.title=element_blank()) +
     theme(axis.text=element_text(size=12),axis.title=element_text(size=12)) +
-    scale_x_date(date_labels = "%b %y", breaks = as.Date(c("2020-01-01", "2020-04-01",
-                                                           "2020-07-01", "2020-10-01",
-                                                           "2021-01-01", "2021-04-01",
-                                                           "2021-07-01", "2021-10-01",
-                                                           "2022-01-01", "2022-04-01",
-                                                           "2022-07-01", "2022-10-01",
-                                                           "2023-01-01", "2023-04-01")))+
+    scale_x_date(date_labels = "%b %y", breaks = as.Date(c("2020-01-31", "2020-04-30",
+                                                           "2020-07-31", "2020-10-31",
+                                                           "2021-01-31", "2021-04-30",
+                                                           "2021-07-31", "2021-10-31",
+                                                           "2022-01-31", "2022-04-30",
+                                                           "2022-07-31", "2022-10-31",
+                                                           "2023-01-31", "2023-04-31")))+
 #    scale_color_manual(values=c('#2F5597','#5B9BD5','#00B0F0','#1F4E79')) +
     scale_color_manual(values=rev(as.character(phsstyles::phs_palettes$`main`))) +
 #    scale_fill_manual(values=rev(as.character(phsstyles::phs_palettes$`main-blues`))) +
