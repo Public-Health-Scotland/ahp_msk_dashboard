@@ -95,4 +95,3 @@ output$waiting_list_chart <- renderPlotly({
     config(displaylogo = F, displayModeBar = TRUE, modeBarButtonsToRemove = bttn_remove )
 })
 
-

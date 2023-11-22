@@ -35,15 +35,21 @@ tagList(
            )
     ),
     column(4, 
-           selectInput("month",
-                       "Select a month and year",
+           selectInput("quarter_map",
+                       "Select a quarter and year",
                        choices = unique(map_data_filteredSHP$`Month/Year`)
                        
            )
            
     )
     
-  )
+  ),
+  
+  fluidRow(
+    
+   leafletOutput("HSCP_map") 
+    
+  ), 
 )
 
 

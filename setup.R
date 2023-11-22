@@ -100,6 +100,11 @@ Seen <- read_csv("data/Seen_data.csv",show_col_types = FALSE)
 Waiting <- read_csv("data/Wait_data.csv",show_col_types = FALSE) 
 Removals <- read_csv("data/Removals_data.csv",show_col_types = FALSE)
 dq <- read_csv("data/dq-text.csv",show_col_types = FALSE)
+map_dataSHP <- read_sf('data/SG_NHS_IntegrationAuthority_2019.shp') %>% 
+  # converts the shapefile to use latitutde and longitude
+  st_transform(4326)  #EPSG4326
+lookup_board_hscp <- read_csv("lookup_board_hscp.csv")
+hscp_map_data <- read_csv("data/hscp_map_data.csv")
 
 # Setting up vector for data download page
 data_list_data_tab <- c("Referrals" = "Referrals",
