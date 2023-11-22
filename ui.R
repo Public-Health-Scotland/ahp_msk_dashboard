@@ -80,7 +80,9 @@ ui <- fluidPage(
                icon = icon_no_warning_fn("location-dot"),
                value = "intro",
                
-               h1("View data by Health and Social Care Partnership"),
+      source(file.path("pages/map_page_ui.R"), local = TRUE)$value
+               
+               
                
                
       ), # tabpanel
