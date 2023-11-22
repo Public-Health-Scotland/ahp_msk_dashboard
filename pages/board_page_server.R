@@ -16,20 +16,7 @@ output$seen_performance <- renderText({
   as.character(div(style = "font-size: 125%;",paste0(seen_box(),"%"))) 
 })
 
-# # Filtering data for waiting_box
-# waiting_box <- reactive({
-#   Waiting %>%
-#     filter(`NHS Board` == input$board) %>%
-#     filter(Specialty == input$specialty) %>%
-#     filter(`Month end` == input$month) %>%
-#     filter(Indicator == "0 - 4 weeks (%)") %>%
-#     pull(Value)
-# })
-# 
-# # Passing data to waiting ValueBox
-# output$waiting_performance <- renderText({
-#   prettyNum(waiting_box(), big.mark=",")
-# })
+
 
 # Create filtered_data to use in chart
 filtered_data <- reactive({
@@ -85,13 +72,14 @@ output$waiting_list_chart <- renderPlotly({
     theme(legend.position="bottom") +
     theme(legend.title=element_blank()) +
     theme(axis.text=element_text(size=12),axis.title=element_text(size=12)) +
-    scale_x_date(date_labels = "%b %y", breaks = as.Date(c("2020-01-31", "2020-04-30",
+    scale_x_date(date_labels = "%b %y", breaks = as.Date(c(
+                                                           "2020-01-31", "2020-04-30",
                                                            "2020-07-31", "2020-10-31",
                                                            "2021-01-31", "2021-04-30",
                                                            "2021-07-31", "2021-10-31",
                                                            "2022-01-31", "2022-04-30",
                                                            "2022-07-31", "2022-10-31",
-                                                           "2023-01-31", "2023-04-31")))+
+                                                           "2023-01-31", "2023-04-30")))+
 #    scale_color_manual(values=c('#2F5597','#5B9BD5','#00B0F0','#1F4E79')) +
     scale_color_manual(values=rev(as.character(phsstyles::phs_palettes$`main`))) +
 #    scale_fill_manual(values=rev(as.character(phsstyles::phs_palettes$`main-blues`))) +
