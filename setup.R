@@ -103,7 +103,7 @@ dq <- read_csv("data/dq-text.csv",show_col_types = FALSE)
 map_dataSHP <- read_sf('data/SG_NHS_IntegrationAuthority_2019.shp') %>% 
   # converts the shapefile to use latitutde and longitude
   st_transform(4326)  #EPSG4326
-lookup_board_hscp <- read_csv("lookup_board_hscp.csv")
+lookup_board_hscp <- read_csv("data/lookup_board_hscp.csv")
 hscp_map_data <- read_csv("data/hscp_map_data.csv")
 
 # Setting up vector for data download page

@@ -1,12 +1,19 @@
 
 ####################### Map Page - SERVER #######################
 
+# Need to put the shape file first when joining so that you get a shape file
+hscp_map_data <-  left_join(hscp_map_data, lookup_board_hscp,
+                          by = c('HIAName' = 'hscp2019name'))
+
+
+
+
 # Create filtered_data to use in map
 map_filtered_data <- reactive({
   hscp_map_data %>%
-    filter(`NHS Board` == input$board_map) %>%
+    filter(`hb2019name` == input$board_map) %>%
     filter(Specialty == input$specialty_map) %>%
-    filter(`Quarter\Year` == input$quarter_map)
+    filter(`Quarter/Year` == input$quarter_map)
 })
 
 # Selecting and rename columns of interest 
@@ -15,24 +22,18 @@ map_dataSHP <- map_dataSHP %>%
 
 # 7 - Joining files ----
 
-# Join SHP file to lookup that contains Board names
-# Need to put the shape file first when joining so that you get a shape file
-map_dataSHP <-  left_join(map_dataSHP, lookup_board_hscp,
-                          by = c('HIAName' = 'hscp2019name'))
-
-
 # Join SHP file to data file containing patients seen and performance data 
 # Need to put the shape file first when joining so that you get a shape file
-map_hscp_dataSHP <-  right_join(map_dataSHP, map_filtered_data,
+map_hscp_dataSHP <-  reactive({right_join(map_dataSHP, map_filtered_data(),
                                 by = c('HIAName' = 'HIAName'),
-                                multiple = "all")
+                                multiple = "all",copy = TRUE)})
 
 output$HSCP_map <- renderLeaflet({
   # plot map
   leaflet() %>% 
     ## Plot the shape of the area on the map #### 
   # https://rstudio.github.io/leaflet/map_widget.html
-  addPolygons(data = map_hscp_dataSHP, 
+  addPolygons(data = map_hscp_dataSHP(), 
               # colour of the entire polygon
               color = "blue",
               # Thickness of borders

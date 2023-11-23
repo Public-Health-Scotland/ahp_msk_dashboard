@@ -10,14 +10,14 @@ tagList(
     column(4,
            selectInput("board_map",
                        "Select a Board",
-                       choices = c("Scotland",
-                                   "NHS Ayrshire & Arran",
+                       choices = c(
+                                   "NHS Ayrshire and Arran",
                                    "NHS Borders",
-                                   "NHS Dumfries & Galloway",
+                                   "NHS Dumfries and Galloway",
                                    "NHS Fife",
                                    "NHS Forth Valley",
                                    "NHS Grampian",
-                                   "NHS Greater Glasgow & Clyde",
+                                   "NHS Greater Glasgow and Clyde",
                                    "NHS Highland",
                                    "NHS Lanarkshire",
                                    "NHS Lothian",
@@ -31,13 +31,13 @@ tagList(
     column(4,
            selectInput("specialty_map",
                        "Select a Specialty",
-                       choices = unique(map_data_filteredSHP$Specialty)
+                       choices = unique(hscp_map_data$Specialty)
            )
     ),
     column(4, 
            selectInput("quarter_map",
                        "Select a quarter and year",
-                       choices = unique(map_data_filteredSHP$`Month/Year`)
+                       choices = unique(hscp_map_data$`Quarter/Year`)
                        
            )
            
