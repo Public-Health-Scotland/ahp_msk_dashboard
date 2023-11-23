@@ -21,6 +21,7 @@ server <- function(input, output, session) {
   
   source(file.path("pages/board_page_server.R"), local = TRUE)$value
   source(file.path("pages/download_page_server.R"), local = TRUE)$value
+  source(file.path("pages/map_page_server.R"), local = TRUE)$value
   
 }
 
