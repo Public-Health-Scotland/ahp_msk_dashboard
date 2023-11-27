@@ -69,8 +69,9 @@ ui <- fluidPage(
                icon = icon_no_warning_fn("user-doctor"),
                value = "intro",
                
-               h1("View data by Specialty"),
                
+      
+      source(file.path("pages/specialty_page_ui.R"), local = TRUE)$value        
                
       ), # tabpanel
       ##############################################.
@@ -98,26 +99,7 @@ ui <- fluidPage(
       source(file.path("pages/download_page_ui.R"), local = TRUE)$value         
                
                
-      ), # tabpanel
-      ##############################################.
-      # PAGE 1 ----
-      ##############################################.
-      tabPanel(title = "Page 1",
-               # Look at https://fontawesome.com/search?m=free for icons
-               icon = icon_no_warning_fn("stethoscope"),
-               value = "intro",
-               
-               h1("Page 1 title"),
-               uiOutput("page_1_ui"),
-               linebreaks(2),
-               h2("An example plot using mtcars data"),
-               plotlyOutput("test_plot"),
-               linebreaks(2),
-               h2("An example data table using mtcars data"),
-               DT::dataTableOutput("test_data_table"),
-               linebreaks(2)
-               
-      ) # tabpanel
+      )
     ) # navbar
   ) # taglist
 ) # ui fluidpage
