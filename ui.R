@@ -69,8 +69,9 @@ ui <- fluidPage(
                icon = icon_no_warning_fn("user-doctor"),
                value = "intro",
                
-               h1("View data by Specialty"),
                
+      
+      source(file.path("pages/specialty_page_ui.R"), local = TRUE)$value        
                
       ), # tabpanel
       ##############################################.
