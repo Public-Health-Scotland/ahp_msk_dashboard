@@ -6,8 +6,8 @@ refs_data_filtered <- reactive({
   Referrals %>%
     subset(`NHS Board` %in% input$board_specialty) %>%
     filter(Specialty == input$specialty_specialty) %>%
-    filter(Indicator == input$refs_indicator) %>%
-    filter(`Month/Year`> "2019-12-31")
+    filter(Indicator == input$refs_indicator) #%>%
+    #filter(`Month/Year`> "2019-12-31")
 })
 
 # Create filtered_data to use in Removals Chart
@@ -15,8 +15,8 @@ removals_data_filtered <- reactive({
   Removals %>%
     subset(`NHS Board` %in% input$board_specialty) %>%
     filter(Specialty == input$specialty_specialty) %>%
-    filter(Indicator == input$removals_indicator) %>%
-    filter(`Month/Year`> "2019-12-31")
+    filter(Indicator == input$removals_indicator) #%>%
+    #filter(`Month/Year`> "2019-12-31")
 })
 
 # Create filtered_data to use in Seen Chart
@@ -24,8 +24,8 @@ seen_data_filtered <- reactive({
   Seen %>%
     subset(`NHS Board` %in% input$board_specialty) %>%
     filter(Specialty == input$specialty_specialty) %>%
-    filter(Indicator == input$seen_indicator) %>%
-    filter(`Month/Year`> "2019-12-31")
+    filter(Indicator == input$seen_indicator) #%>%
+    #filter(`Month/Year`> "2019-12-31")
 })
 
 # Create filtered_data to use in Waiting Chart
@@ -33,8 +33,8 @@ waiting_data_filtered <- reactive({
   Waiting %>%
     subset(`NHS Board` %in% input$board_specialty) %>%
     filter(Specialty == input$specialty_specialty) %>%
-    filter(Indicator == input$waiting_indicator) %>%
-    filter(`Month end`> "2019-12-31")
+    filter(Indicator == input$waiting_indicator) #%>%
+    #filter(`Month end`> "2019-12-31")
 })
 
 #####  Charts

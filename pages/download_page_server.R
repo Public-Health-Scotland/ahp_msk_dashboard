@@ -11,7 +11,8 @@ data_table <- reactive({
                         "Seen" = Seen,
                         "Waiting" = Waiting,
                         "Removals" = Removals, 
-                        "Join_all_long2" = Join_all_long2)
+                        "Join_all_long2" = Join_all_long2,
+                        "hscp_map_data" = hscp_map_data)
                        
 
 })
