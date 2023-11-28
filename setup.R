@@ -1,4 +1,4 @@
-####################### Setup for Geospatial packages #######################
+####################### Setup for the Geospatial packages #######################
 
 # Set environment variables to point to installations of geospatial libraries ----
 
