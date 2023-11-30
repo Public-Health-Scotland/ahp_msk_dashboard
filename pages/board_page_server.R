@@ -13,7 +13,7 @@ seen_box <- reactive({
 
 # Passing data to seen valueBox. Need seen_box() instead of input$seen_box 
 output$seen_performance <- renderText({
-  as.character(div(style = "font-size: 125%;",paste0(seen_box(),"%"))) 
+  as.character(div(style = "font-size: 125%; color: white !important;",paste0(seen_box(),"%"))) 
 })
 
 
