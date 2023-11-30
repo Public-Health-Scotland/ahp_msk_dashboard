@@ -56,7 +56,7 @@ tagList(
   
   fluidRow(
     valueBox(
-      value = tags$p("90%", style = "font-size: 125%;"),
+      value = tags$p("90%", style = "font-size: 125%; color: white !important;"),
       subtitle = tags$p("TARGET: patients seen within 4 weeks of referral",style = "font-size: 125%;"),
       icon = icon("bullseye"), color = "fuchsia",
       width = 6
