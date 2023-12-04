@@ -55,7 +55,7 @@ output$dq_text <- renderUI({
   
 })
 
-
+legend_title <- ""
 
 # waiting-list_chart
 output$waiting_list_chart <- renderPlotly({
@@ -81,7 +81,7 @@ output$waiting_list_chart <- renderPlotly({
                                                            "2022-07-31", "2022-10-31",
                                                            "2023-01-31", "2023-04-30")))+
 #    scale_color_manual(values=c('#2F5597','#5B9BD5','#00B0F0','#1F4E79')) +
-    scale_color_manual(values=rev(as.character(phsstyles::phs_palettes$`main`))) +
+    scale_color_manual(legend_title,values=rev(as.character(phsstyles::phs_palettes$`main`))) +
 #    scale_fill_manual(values=rev(as.character(phsstyles::phs_palettes$`main-blues`))) +
     ylab(NULL) +
     xlab(NULL) +
@@ -92,6 +92,6 @@ output$waiting_list_chart <- renderPlotly({
              tooltip = "text") %>%
       layout(legend = list(orientation = 'h', x = 0.1, y = 1.2)) %>%
       #    layout(legend = list(orientation = 'h', x = 0.1, y = -0.2)) %>%
-    config(displaylogo = F, displayModeBar = TRUE, modeBarButtonsToRemove = bttn_remove )
+    config(displaylogo = F, displayModeBar = TRUE, modeBarButtonsToRemove = bttn_remove ) 
 })
 

@@ -42,7 +42,7 @@ output$HSCP_map <- renderLeaflet({
               popup = ~paste0("Health Board: ", hb2019name, "<br>",
                               "HSCP Name: ", HIAName, "<br>",
                               "Specialty: ", Specialty, "<br>",
-                              "Quarter/Year: ", "Q",`Quarter/Year`, "<br>",
+                              "Quarter/Year: ", `Quarter/Year`, "<br>",
                               "Patients Seen: ", prettyNum(`Patients seen`, big.mark=","), "<br>",
                               #"Patients Seen: ", `Patients seen`, "<br>",
                               "4 Week Performance: ", `0 - 4 weeks (%)`, "%"),

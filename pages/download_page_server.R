@@ -12,7 +12,7 @@ data_table <- reactive({
                         "Waiting" = Waiting,
                         "Removals" = Removals, 
                         "Join_all_long2" = Join_all_long2,
-                        "hscp_map_data" = hscp_map_data)
+                        "hscp_map_data_download" = hscp_map_data_download)
                        
 
 })
