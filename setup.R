@@ -105,6 +105,9 @@ map_dataSHP <- read_sf('data/SG_NHS_IntegrationAuthority_2019.shp') %>%
   st_transform(4326)  #EPSG4326
 lookup_board_hscp <- read_csv("data/lookup_board_hscp.csv")
 hscp_map_data <- read_csv("data/hscp_map_data.csv")
+hscp_map_data_download <- read_csv("data/hscp_map_data_download.csv")
+
+
 
 # Setting up vector for data download page
 data_list_data_tab <- c("NHS Board chart data" = "Join_all_long2",
@@ -112,7 +115,7 @@ data_list_data_tab <- c("NHS Board chart data" = "Join_all_long2",
                         "Removals" = "Removals",
                         "Patients Seen" = "Seen",
                         "Patients Waiting" = "Waiting",
-                        "Patients Seen by HSCP" = "hscp_map_data"
+                        "Patients Seen by HSCP" = "hscp_map_data_download"
                         )
 
 
