@@ -48,12 +48,12 @@ output$referrals_specialty_plot <- renderPlotly({
                              Indicator, ": ", format(Value, big.mark = ",", scientific = FALSE))
            )
     ) +
-    geom_line(aes(colour= `NHS Board`), size=1.2) +
+    geom_line(aes(colour = `NHS Board`), size = 1.2) +
     theme_bw() +
     theme(legend.text = element_text(size = 12)) +
-    theme(legend.position="bottom") +
-    theme(legend.title=element_blank()) +
-    theme(axis.text=element_text(size=12),axis.title=element_text(size=12)) +
+    theme(legend.position = "bottom") +
+    theme(legend.title = element_blank()) +
+    theme(axis.text = element_text(size = 12),axis.title = element_text(size = 12)) +
     scale_x_date(date_labels = "%b %y", breaks = as.Date(c(
       "2020-01-31", 
       "2020-07-31", 
@@ -61,18 +61,17 @@ output$referrals_specialty_plot <- renderPlotly({
       "2021-07-31", 
       "2022-01-31", 
       "2022-07-31", 
-      "2023-01-31")))+
-    scale_color_manual(values=rev(as.character(phsstyles::phs_palettes$`main`))) +
+      "2023-01-31"))) +
+    scale_color_manual(values = rev(as.character(phsstyles::phs_palettes$`main`))) +
     ylab(NULL) +
     xlab(NULL) +
     labs(alt = "A line chart...") +
     theme(plot.title.position = "panel") +
-    scale_y_continuous (labels=function(x) format(x, big.mark = ",", scientific = FALSE))
+    scale_y_continuous(labels = function(x) format(x, big.mark = ",", scientific = FALSE))
   
   ggplotly(refs_plot, 
            tooltip = "text") %>%
-    layout(legend = list(orientation = 'h', x = 0.1, y = -0.2)) %>%
-    #    layout(legend = list(orientation = 'h', x = 0.1, y = -0.2)) %>%
+    layout(legend = list(orientation = 'h', x = 0.0, y = -0.2)) %>%
     config(displaylogo = F, displayModeBar = TRUE, modeBarButtonsToRemove = bttn_remove )
 })
 
@@ -85,12 +84,12 @@ output$removals_specialty_plot <- renderPlotly({
                              Indicator, ": ", format(Value, big.mark = ",", scientific = FALSE))
            )
     ) +
-    geom_line(aes(colour= `NHS Board`), size=1.2) +
+    geom_line(aes(colour = `NHS Board`), size = 1.2) +
     theme_bw() +
     theme(legend.text = element_text(size = 12)) +
-    theme(legend.position="bottom") +
-    theme(legend.title=element_blank()) +
-    theme(axis.text=element_text(size=12),axis.title=element_text(size=12)) +
+    theme(legend.position = "bottom") +
+    theme(legend.title = element_blank()) +
+    theme(axis.text = element_text(size = 12),axis.title = element_text(size = 12)) +
     scale_x_date(date_labels = "%b %y", breaks = as.Date(c(
       "2020-01-31", 
       "2020-07-31", 
@@ -98,18 +97,17 @@ output$removals_specialty_plot <- renderPlotly({
       "2021-07-31", 
       "2022-01-31", 
       "2022-07-31", 
-      "2023-01-31")))+
-    scale_color_manual(values=rev(as.character(phsstyles::phs_palettes$`main`))) +
+      "2023-01-31"))) +
+    scale_color_manual(values = rev(as.character(phsstyles::phs_palettes$`main`))) +
     ylab(NULL) +
     xlab(NULL) +
     labs(alt = "A line chart...") +
     theme(plot.title.position = "panel") +
-    scale_y_continuous (labels=function(x) format(x, big.mark = ",", scientific = FALSE))
+    scale_y_continuous(labels = function(x) format(x, big.mark = ",", scientific = FALSE))
   
   ggplotly(removals_plot, 
            tooltip = "text") %>%
-    layout(legend = list(orientation = 'h', x = 0.1, y = -0.2)) %>%
-    #    layout(legend = list(orientation = 'h', x = 0.1, y = -0.2)) %>%
+    layout(legend = list(orientation = 'h', x = 0.0, y = -0.2)) %>%
     config(displaylogo = F, displayModeBar = TRUE, modeBarButtonsToRemove = bttn_remove )
 })
 
@@ -122,12 +120,12 @@ output$seen_specialty_plot <- renderPlotly({
                              Indicator, ": ", format(Value, big.mark = ",", scientific = FALSE))
            )
     ) +
-    geom_line(aes(colour= `NHS Board`), size=1.2) +
+    geom_line(aes(colour = `NHS Board`), size = 1.2) +
     theme_bw() +
     theme(legend.text = element_text(size = 12)) +
-    theme(legend.position="bottom") +
-    theme(legend.title=element_blank()) +
-    theme(axis.text=element_text(size=12),axis.title=element_text(size=12)) +
+    theme(legend.position = "bottom") +
+    theme(legend.title = element_blank()) +
+    theme(axis.text = element_text(size = 12),axis.title = element_text(size = 12)) +
     scale_x_date(date_labels = "%b %y", breaks = as.Date(c(
       "2020-01-31", 
       "2020-07-31", 
@@ -135,18 +133,17 @@ output$seen_specialty_plot <- renderPlotly({
       "2021-07-31", 
       "2022-01-31", 
       "2022-07-31", 
-      "2023-01-31")))+
-    scale_color_manual(values=rev(as.character(phsstyles::phs_palettes$`main`))) +
+      "2023-01-31"))) +
+    scale_color_manual(values = rev(as.character(phsstyles::phs_palettes$`main`))) +
     ylab(NULL) +
     xlab(NULL) +
     labs(alt = "A line chart...") +
     theme(plot.title.position = "panel") +
-    scale_y_continuous (labels=function(x) format(x, big.mark = ",", scientific = FALSE))
+    scale_y_continuous(labels=function(x) format(x, big.mark = ",", scientific = FALSE))
   
   ggplotly(seen_plot, 
            tooltip = "text") %>%
-    layout(legend = list(orientation = 'h', x = 0.1, y = -0.2)) %>%
-    #    layout(legend = list(orientation = 'h', x = 0.1, y = -0.2)) %>%
+    layout(legend = list(orientation = 'h', x = 0.0, y = -0.2)) %>%
     config(displaylogo = F, displayModeBar = TRUE, modeBarButtonsToRemove = bttn_remove )
 })
 
@@ -159,12 +156,12 @@ output$waiting_specialty_plot <- renderPlotly({
                              Indicator, ": ", format(Value, big.mark = ",", scientific = FALSE))
            )
     ) +
-    geom_line(aes(colour= `NHS Board`), size=1.2) +
+    geom_line(aes(colour = `NHS Board`), size = 1.2) +
     theme_bw() +
     theme(legend.text = element_text(size = 12)) +
-    theme(legend.position="bottom") +
-    theme(legend.title=element_blank()) +
-    theme(axis.text=element_text(size=12),axis.title=element_text(size=12)) +
+    theme(legend.position = "bottom") +
+    theme(legend.title = element_blank()) +
+    theme(axis.text = element_text(size = 12),axis.title = element_text(size = 12)) +
     scale_x_date(date_labels = "%b %y", breaks = as.Date(c(
       "2020-01-31", 
       "2020-07-31", 
@@ -172,18 +169,17 @@ output$waiting_specialty_plot <- renderPlotly({
       "2021-07-31", 
       "2022-01-31", 
       "2022-07-31", 
-      "2023-01-31")))+
-    scale_color_manual(values=rev(as.character(phsstyles::phs_palettes$`main`))) +
+      "2023-01-31"))) +
+    scale_color_manual(values = rev(as.character(phsstyles::phs_palettes$`main`))) +
     ylab(NULL) +
     xlab(NULL) +
     labs(alt = "A line chart...") +
     theme(plot.title.position = "panel") +
-    scale_y_continuous (labels=function(x) format(x, big.mark = ",", scientific = FALSE))
+    scale_y_continuous(labels = function(x) format(x, big.mark = ",", scientific = FALSE))
   
   ggplotly(waiting_plot, 
            tooltip = "text") %>%
-    layout(legend = list(orientation = 'h', x = 0.1, y = -0.2)) %>%
-    #    layout(legend = list(orientation = 'h', x = 0.1, y = -0.2)) %>%
+    layout(legend = list(orientation = 'h', x = 0.0, y = -0.2)) %>%
     config(displaylogo = F, displayModeBar = TRUE, modeBarButtonsToRemove = bttn_remove )
 })
 
